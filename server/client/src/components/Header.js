@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
-
+import Payments from "./Payments";
 const Header = () => {
     const auth = useSelector(state => state.auth);
     const renderContent = () => {
@@ -13,7 +13,11 @@ const Header = () => {
                     <li><a href={"/auth/google"}>Login With Google</a></li>
                 )
             default:
-                return <li><a href={"/api/logout"}>Log out</a></li>
+                return [
+                    <li key={1}><Payments /></li>,
+                    <li key={2} style={{ margin: '0 10px' }}>Credits: {auth.credits}</li>,
+                    <li key={3}><a href={"/api/logout"}>Log out</a></li>
+                ]
         }
     }
     return (
