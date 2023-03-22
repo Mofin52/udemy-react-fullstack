@@ -13,7 +13,7 @@ const Payments = () => {
             stripeKey={process.env.REACT_APP_STRIPE_KEY}
             amount={500}
         >
-            <buttom className={"btn"}>Add Credits</buttom>
+            <button className={"btn"}>Add Credits</button>
         </StripeCheckout>
     )
 }
